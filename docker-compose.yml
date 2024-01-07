@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  mylinux:
+    build: ./linux-container
+    container_name: mylinux
+    hostname: mylinux
+    working_dir: /work
+    tty: true
+    stdin_open: true
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /mnt/wslg:/mnt/wslg
+    environment:
+      - DISPLAY=$DISPLAY
+      - PULSE_SERVER=$PULSE_SERVER
+      - WAYLAND_DISPLAY=$WAYLAND_DISPLAY
+      - XDG_RUNTIME_DIR=$XDG_RUNTIME_DIR
